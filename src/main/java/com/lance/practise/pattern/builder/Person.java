@@ -1,4 +1,4 @@
-package com.lance.practise.pattern;
+package com.lance.practise.pattern.builder;
 
 /**
  * 设计模式: Builder模式

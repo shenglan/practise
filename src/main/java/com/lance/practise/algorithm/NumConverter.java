@@ -1,9 +1,11 @@
 package com.lance.practise.algorithm;
 
 /**
- * 将任意int转换成中文的字符串,如123转换为一百二十三
+ * Converter Integer to Chinese number in String, eg: 123->一百二十三
+ *
+ * @author shenglan
  */
-public class ChineseNumConverter {
+public class NumConverter {
 
     private static final String CHI_NEG = "负";
 
