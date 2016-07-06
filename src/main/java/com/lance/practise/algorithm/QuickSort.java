@@ -1,7 +1,7 @@
 package com.lance.practise.algorithm;
 
 /**
- * 时间复杂度: O(nlog(n)),取决于递归深度
+ * 时间复杂度: O(nlogn),取决于递归深度
  * 顺序/逆序的时间复杂度: O(n2)
  *
  * @author Shenglan Wang

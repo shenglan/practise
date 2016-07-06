@@ -1,6 +1,12 @@
 package com.lance.practise.algorithm;
 
 /**
+ * 在JAVA里面如何表示链表，栈和队列？
+ * - 链表和数组是两种基本的数据结构，栈和队列基于链表或数组来实现。
+ * - 在JAVA Collection里面:
+ *   - List（ArrayList 数组，LinkedList 链表），
+ *   - Queue （ArrayQueue 数组，LinkedBlockingQueue 链表）
+ *   - Vector（Stack的父类 数组)
  *
  * @author Shenglan Wang
  */
