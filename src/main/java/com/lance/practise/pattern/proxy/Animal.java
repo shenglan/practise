@@ -3,5 +3,6 @@ package com.lance.practise.pattern.proxy;
 /**
  * @author Shenglan Wang
  */
-public class IHello {
+public interface Animal {
+    void speak();
 }
