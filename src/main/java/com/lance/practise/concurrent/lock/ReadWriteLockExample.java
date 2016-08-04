@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @see <a href="http://pi88dian88.iteye.com/blog/2017045"/>
  * @author Shenglan Wang
  */
-public class ReadWriteLockPractise {
+public class ReadWriteLockExample {
     private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
     private Lock readLock = readWriteLock.readLock();
@@ -44,10 +44,10 @@ public class ReadWriteLockPractise {
     }
 
     public static class MyThread extends Thread {
-        private ReadWriteLockPractise readWriteLockPractise;
+        private ReadWriteLockExample readWriteLockPractise;
         private String methodName;
 
-        public MyThread(ReadWriteLockPractise readWriteLockTest, String methodName) {
+        public MyThread(ReadWriteLockExample readWriteLockTest, String methodName) {
             super();
             this.readWriteLockPractise = readWriteLockTest;
             this.methodName = methodName;
@@ -63,7 +63,7 @@ public class ReadWriteLockPractise {
     }
 
     public static void main(String[] args) {
-        ReadWriteLockPractise practise = new ReadWriteLockPractise();
+        ReadWriteLockExample practise = new ReadWriteLockExample();
         Thread t1 = new MyThread(practise, "read");
         Thread t2 = new MyThread(practise, "write");
         t1.start();

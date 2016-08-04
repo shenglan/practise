@@ -3,7 +3,7 @@ package com.lance.practise.concurrent.lock;
 /**
  * @author Shenglan Wang
  */
-public class SynchronizedPractise {
+public class SynchronizedExample {
 
     /**
      * 当没有明确的对象作为锁,只是想让一段代码同步时,可以创建一个特殊的对象,如下.
@@ -63,7 +63,7 @@ public class SynchronizedPractise {
     }
 
     public static void main(String[] args) {
-        final SynchronizedPractise practise = new SynchronizedPractise();
+        final SynchronizedExample practise = new SynchronizedExample();
         practise.print();
 
         Runnable taskRead = () -> practise.read();

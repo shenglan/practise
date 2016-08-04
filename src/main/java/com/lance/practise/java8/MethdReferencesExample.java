@@ -1,9 +1,6 @@
 package com.lance.practise.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +32,10 @@ public class MethdReferencesExample {
         // method references
         Comparator<Person> byName2 = Comparator.comparing(Person::getName);
         Arrays.sort(people, byName2);
+
+        // Class::new, only when Class implements FunctionalInterface
+        FunctionalInterfaceExample example = FunctionalInterfaceExampleImpl::new;
+        example.read();
     }
 
     @Data
@@ -42,5 +43,12 @@ public class MethdReferencesExample {
     static class Person {
         private String name;
         private int age;
+    }
+}
+
+class FunctionalInterfaceExampleImpl implements FunctionalInterfaceExample {
+
+    @Override public void read() {
+        System.out.println("I am in read");
     }
 }
