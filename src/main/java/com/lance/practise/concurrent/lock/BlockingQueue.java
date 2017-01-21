@@ -19,7 +19,7 @@ public class BlockingQueue<T> {
 
     private int count;
 
-    private int capacity;
+    private final int capacity;
 
     private final ReentrantLock lock = new ReentrantLock();
 
