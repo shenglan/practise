@@ -75,8 +75,8 @@ public class BlockingQueue<T> {
         if (++tail == getCapacity()) {
             tail = 0;
         }
-        notEmpty.signal();
         count++;
+        notEmpty.signal();
     }
 
     public static void main(String[] args) {

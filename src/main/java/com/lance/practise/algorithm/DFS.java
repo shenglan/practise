@@ -17,6 +17,11 @@ public class DFS {
         search(root.getRchild());
     }
 
+    /**
+     * 二叉树的中序遍历：
+     * 左边一直压栈到底，再压栈右边的节点
+     * @param root
+     */
     public static void dfsSearch(TNode root) {
         if (root == null) {
             return;

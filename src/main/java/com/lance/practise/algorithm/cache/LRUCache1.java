@@ -7,7 +7,7 @@ import java.util.Map;
  * LRUCache实现:
  * 1.用队列（先进先出）实现Cache的LRU换出
  * 2.用双向链表来实现队列（和单项链表相比较,双向链表在调整链表结构时更加方便）
- * 3.Put时,进队列并将节点放到队尾,如果Cache空间不足,则换成队首节点; Get时,将节点调整到队尾
+ * 3.Put时,进队列并将节点放到队尾,如果Cache空间不足,则换出队首节点; Get时,将节点调整到队尾
  *
  * @author Shenglan Wang
  */

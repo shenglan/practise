@@ -1,13 +1,13 @@
-package com.lance.practise.demo;
+package com.lance.practise.misc;
 
 /**
  * @author Shenglan Wang
  */
-public class MyThread extends Thread {
+public class ThreadDemo extends Thread {
 
     private String name;
 
-    public MyThread(String name) {
+    public ThreadDemo(String name) {
         super();
         this.name = name;
     }
@@ -20,8 +20,8 @@ public class MyThread extends Thread {
     }
 
     public static void main(String[] args) {
-        MyThread thread1 = new MyThread("ThreadA");
-        MyThread thread2 = new MyThread("ThreadB");
+        ThreadDemo thread1 = new ThreadDemo("ThreadA");
+        ThreadDemo thread2 = new ThreadDemo("ThreadB");
 
         thread1.start();
 

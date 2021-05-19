@@ -24,7 +24,7 @@ public class MinimumStack {
 
     private int min;
 
-    public MinimumStack(int size) {
+    MinimumStack(int size) {
         this.validLength = 0;
         this.size = size;
         this.data = new int[size];

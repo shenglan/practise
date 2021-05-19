@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  * @author Shenglan Wang
- *
+ * 用双向链接表实现
  * (未完)
  */
 public class LRUCache2 {
@@ -51,6 +51,7 @@ public class LRUCache2 {
     public void put(Integer key, Node node) {
         cache.put(key, node);
         if (cache.size() > capacity) {
+            // cache.removeHead()
             removeHead();
         }
         appendTail(node);

@@ -11,13 +11,13 @@ import java.util.List;
  *
  * @author Shenglan Wang
  */
-public class GenericExample<T extends Parent, K> {
+public class GenericDemo<T extends Parent, K> {
 
     private List<T> list;
 
     private K value;
 
-    public GenericExample(List<T> list, K value) {
+    public GenericDemo(List<T> list, K value) {
         this.list = list;
         this.value = value;
     }
@@ -92,6 +92,7 @@ public class GenericExample<T extends Parent, K> {
         func2(list3);
 
         List<?> list4 = new ArrayList<>();
+        func4(list2);
         func4(list4);
 
         List<? extends Parent> list5 = new ArrayList<>();
@@ -101,7 +102,7 @@ public class GenericExample<T extends Parent, K> {
         func6(list6);
 
         List<ClildB> list7 = new ArrayList<>();
-        GenericExample<ClildB, String> example = new GenericExample(list7, "hello");
+        GenericDemo<ClildB, String> example = new GenericDemo(list7, "hello");
     }
 }
 

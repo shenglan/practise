@@ -18,7 +18,7 @@ public class BFS {
 
     public static List<Integer> search(TNode root) {
         if (root == null) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
 
         List<Integer> res = new ArrayList<>();
@@ -41,7 +41,7 @@ public class BFS {
 
     public static List<List<Integer>> searchByLevel(TNode root) {
         if (root == null) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
 
         List<List<Integer>> result = new ArrayList<>();

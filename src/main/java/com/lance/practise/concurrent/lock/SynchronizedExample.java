@@ -18,6 +18,12 @@ public class SynchronizedExample {
         }
     }
 
+    public static void lockClass() {
+        synchronized (SynchronizedExample.class) {
+            System.out.println("I am in lockClass");
+        }
+    }
+
     public synchronized void read() {
         String name = Thread.currentThread().getName();
         System.out.println(name + ":" + value);
@@ -65,6 +71,7 @@ public class SynchronizedExample {
     public static void main(String[] args) {
         final SynchronizedExample practise = new SynchronizedExample();
         practise.print();
+        SynchronizedExample.lockClass();
 
         Runnable taskRead = () -> practise.read();
         Runnable taskWrite = () -> practise.write(30);
@@ -76,7 +83,7 @@ public class SynchronizedExample {
         new Thread(taskRead).start();
 
         // Synchronized锁定了this, test1()和test2()不能同时进入
-        new Thread(()->practise.test1()).start();
-        new Thread(()->practise.test2()).start();
+//        new Thread(()->practise.test1()).start();
+//        new Thread(()->practise.test2()).start();
     }
 }
