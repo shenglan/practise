@@ -1,4 +1,4 @@
-package com.lance.practise.algorithm;
+package com.lance.practise.algorithm.search;
 
 import java.util.Queue;
 
@@ -10,7 +10,7 @@ import lombok.Data;
  * @author Shenglan Wang
  */
 @Data
-class TNode {
+public class TNode {
     private TNode lchild;
     private TNode rchild;
     private int value;

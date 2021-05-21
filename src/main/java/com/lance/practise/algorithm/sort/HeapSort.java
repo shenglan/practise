@@ -1,4 +1,4 @@
-package com.lance.practise.algorithm;
+package com.lance.practise.algorithm.sort;
 
 /**
  * 时间复杂度: O(nlogn)
@@ -8,7 +8,7 @@ package com.lance.practise.algorithm;
  * - 下沉(调整)
  *
  * @author Shenglan Wang
- * @see <a href="http://blog.csdn.net/morewindows/article/details/6709644"/>
+ * @see <a href="34"/>
  */
 public class HeapSort {
 

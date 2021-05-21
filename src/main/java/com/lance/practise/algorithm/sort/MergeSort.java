@@ -1,4 +1,4 @@
-package com.lance.practise.algorithm;
+package com.lance.practise.algorithm.sort;
 
 /**
  * 时间复杂度: O(nlogn)
