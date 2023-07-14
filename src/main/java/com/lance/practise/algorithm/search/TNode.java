@@ -1,10 +1,9 @@
 package com.lance.practise.algorithm.search;
 
-import java.util.Queue;
-
-import org.eclipse.jetty.util.ArrayQueue;
-
 import lombok.Data;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * @author Shenglan Wang
@@ -26,7 +25,7 @@ public class TNode {
 
         TNode root = new TNode(nums[0]);
         TNode node = root;
-        Queue<TNode> queue = new ArrayQueue<>();
+        Queue<TNode> queue = new PriorityQueue<>();
         for (int i = 1; i < nums.length; i++) {
             TNode lnode = new TNode(nums[i]);
             node.setLchild(lnode);

@@ -2,10 +2,10 @@ package com.lance.practise.algorithm.search;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 import com.google.common.collect.Lists;
-import org.eclipse.jetty.util.ArrayQueue;
 
 /**
  * BFS, Breadth First Search.
@@ -23,7 +23,7 @@ public class BFS {
     }
 
     List<Integer> nodes = Lists.newArrayList();
-    Queue<TNode> queue = new ArrayQueue<>();
+    Queue<TNode> queue = new PriorityQueue<>();
     TNode node = root;
     while (node != null) {
       nodes.add(node.getValue());
@@ -46,7 +46,7 @@ public class BFS {
     }
     List<List<Integer>> result = Lists.newArrayList();
 
-    Queue<TNode> queue = new ArrayQueue<>();
+    Queue<TNode> queue = new PriorityQueue<>();
     TNode node = root;
     List<Integer> nodes = Lists.newArrayList();
     int parentNum = 1;
