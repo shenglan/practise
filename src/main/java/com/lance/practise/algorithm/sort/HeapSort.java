@@ -1,5 +1,7 @@
 package com.lance.practise.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 时间复杂度: O(nlogn)
  * - 堆是完成二叉树,大顶堆/小顶堆
@@ -12,77 +14,69 @@ package com.lance.practise.algorithm.sort;
  */
 public class HeapSort {
 
-    public static int[] heapSort(int[] nums) {
-        int[] result = new int[nums.length];
-        nums = initHeap(nums);
-
-        for (int idx = 1; idx <= nums.length-1; idx++) {
-            result[idx] = nums[1];
-            nums[1] = nums[nums.length-idx];
-            nums = downHead(nums, 1, nums.length - idx);
+    public static void heapSort(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return;
         }
-        return result
-                ;
-    }
 
-    private static int[] initHeap(int[] nums) {
-        //i 2i 2i+1 i/2
-        for (int i = nums.length - 1; i > 0; i--) {
-            nums = downHead(nums, i, nums.length);
-        }
-        return nums;
-    }
-
-    private static int[] downHead(int[] nums, int idx, int length) {
-        while (idx < length) {
-            int leftIdx = 2 * idx;
-            if (leftIdx >= length) {
-                break;
-            }
-            int rightIdx = 2 * idx + 1;
-            if (rightIdx >= length) {
-                if (nums[idx] <= nums[leftIdx]) {
-                    break;
-                } else {
-                    int temp = nums[idx];
-                    nums[idx] = nums[leftIdx];
-                    nums[leftIdx] = temp;
-                    idx = leftIdx;
-                }
-            } else {
-                if (nums[idx] <= nums[leftIdx] && nums[idx] <= nums[rightIdx]) {
-                    break;
-                }
-
-                if (nums[leftIdx] < nums[rightIdx]) {
-                    if (nums[idx] > nums[leftIdx]) {
-                        int temp = nums[idx];
-                        nums[idx] = nums[leftIdx];
-                        nums[leftIdx] = temp;
-                        idx = leftIdx;
-                    } else {
-                        break;
-                    }
-                } else {
-                    if (nums[idx] > nums[rightIdx]) {
-                        int temp = nums[idx];
-                        nums[idx] = nums[rightIdx];
-                        nums[rightIdx] = temp;
-                        idx = rightIdx;
-                    } else {
-                        break;
-                    }
-                }
+        for (int i = nums.length / 2 - 1; i >= 0; i--) {
+            int firstIdx = i;
+            int maxIdx = findMaxItem(nums, i, i * 2 + 1, i * 2 + 2, nums.length - 1);
+            while (maxIdx != firstIdx) {
+                firstIdx = maxIdx;
+                maxIdx = findMaxItem(nums, maxIdx, maxIdx * 2 + 1, maxIdx * 2 + 2, nums.length - 1);
             }
         }
-        return nums;
+
+        for (int i = 0; i <= nums.length - 1; i++) {
+            int lastIdx = nums.length - 1 - i;
+            int temp = nums[0];
+            nums[0] = nums[lastIdx];
+            nums[lastIdx] = temp;
+
+            for (int k = 0; k < lastIdx; ) {
+                int maxIdx = findMaxItem(nums, k, k * 2 + 1, k * 2 + 2, lastIdx - 1);
+                if (maxIdx == k) {
+                    break;
+                }
+                k = maxIdx;
+            }
+        }
+    }
+
+    private static int findMaxItem(int[] nums, int rootIdx, int leftChildIdx, int rightChildIdx, int endIdx) {
+        int maxItemIdx = rootIdx;
+        if (leftChildIdx > endIdx) {
+            return maxItemIdx;
+        }
+
+        if (nums[rootIdx] < nums[leftChildIdx]) {
+            maxItemIdx = leftChildIdx;
+        }
+
+        if (rightChildIdx <= endIdx) {
+            if (nums[maxItemIdx] < nums[rightChildIdx]) {
+                maxItemIdx = rightChildIdx;
+            }
+        }
+
+        if (rootIdx != maxItemIdx) {
+            int temp = nums[rootIdx];
+            nums[rootIdx] = nums[maxItemIdx];
+            nums[maxItemIdx] = temp;
+        }
+        return maxItemIdx;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[] { 0, 4, 6, 3, 2, 7, 5, 5};
-        int[] result = heapSort(nums);
-        for (int i : result) {
-            System.out.println(i);
-        }
+        int[] nums = new int[]{0, 4, 6, 3, 2, 7, 5, 5};
+        System.out.println(Arrays.toString(nums));
+        heapSort(nums);
+        System.out.println(Arrays.toString(nums));
+
+        nums = new int[]{1, 3, 4, 6, 3, 6, 5};
+        System.out.println(Arrays.toString(nums));
+        heapSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }
